@@ -16,11 +16,11 @@ use App\Http\Controllers\ConfiguracionController;
 
 Route::get('/', [InicioController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'showLogin']);
+Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/register', [LoginController::class, 'showRegister']);
-Route::post('/register', [LoginController::class, 'register']);
+Route::get('/Register', [LoginController::class, 'showRegister']);
+Route::post('/Register', [LoginController::class, 'register']);
 
 /*
 |--------------------------------------------------------------------------

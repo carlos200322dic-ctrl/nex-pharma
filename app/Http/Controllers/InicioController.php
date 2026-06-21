@@ -6,6 +6,6 @@ class InicioController extends Controller
 {
     public function index()
     {
-        return view('Inicio');
+        return view('inicio');
     }
 }
