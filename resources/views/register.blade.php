@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Nex Pharma</title>
+    <title>Crear Cuenta - Nex Pharma</title>
     <!-- Cargamos Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         /* --- COLORES CORPORATIVOS --- */
@@ -30,8 +30,8 @@
             
             <!-- Enlace para regresar -->
             <div class="mb-6">
-                <a href="{{ url('/') }}" class="text-sm font-medium text-blue-700 hover:underline">
-                    ← Volver al inicio
+                <a href="{{ url('/login') }}" class="text-sm font-medium text-blue-700 hover:underline">
+                    ← Volver al Login
                 </a>
             </div>
 
@@ -49,13 +49,28 @@
 
                 <!-- Títulos -->
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900">Iniciar Sesión</h2>
-                    <p class="text-sm text-gray-500 mt-1">Ingresa tus credenciales para acceder al sistema</p>
+                    <h2 class="text-3xl font-bold text-gray-900">Crear Cuenta</h2>
+                    <p class="text-sm text-gray-500 mt-1">Registra tus datos para acceder al sistema de inventario</p>
                 </div>
 
                 <!-- Formulario -->
-                <form action="{{ url('/login') }}" method="POST" class="space-y-4">
+                <form action="{{ url('/register') }}" method="POST" class="space-y-4">
                     @csrf
+
+                    <!-- Nombre Completo -->
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nombre Completo</label>
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               value="{{ old('name') }}" 
+                               placeholder="Ej: Carlos Juárez"
+                               class="w-full px-4 py-2 fondo-inputs-claros border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                               required autofocus>
+                        @error('name')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
 
                     <!-- Correo Electrónico -->
                     <div>
@@ -78,23 +93,32 @@
                         <input type="password" 
                                id="password" 
                                name="password" 
-                               placeholder="••••••••"
+                               placeholder="Mínimo 8 caracteres"
+                               class="w-full px-4 py-2 fondo-inputs-claros border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                               required>
+                        @error('password')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Confirmar Contraseña -->
+                    <div>
+                        <label for="password_confirmation" class="block text-sm font-semibold text-gray-700 mb-1">Confirmar Contraseña</label>
+                        <input type="password" 
+                               id="password_confirmation" 
+                               name="password_confirmation" 
+                               placeholder="Repite tu contraseña"
                                class="w-full px-4 py-2 fondo-inputs-claros border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
                                required>
                     </div>
 
-                    <!-- Botón de Ingreso -->
+                    <!-- Botón de Registro -->
                     <div class="pt-4">
                         <button type="submit" class="w-full py-2.5 fondo-azul-oscuro-corporativo hover:bg-blue-800 text-white font-medium rounded-lg text-sm transition-colors cursor-pointer shadow-md">
-                            Iniciar Sesión
+                            Registrarse en el Sistema
                         </button>
                     </div>
                 </form>
-
-                <!-- Crear una Cuenta (Restaurado) -->
-                <div class="text-center text-sm text-gray-600 pt-2">
-                    ¿No tienes una cuenta? <a href="{{ url('/register') }}" class="text-blue-700 font-semibold hover:underline">Crear una cuenta</a>
-                </div>
 
             </div>
 
@@ -116,7 +140,6 @@
             <!-- Lista de Características -->
             <div class="space-y-4 max-w-md">
                 
-                <!-- Item 1 -->
                 <div class="flex items-start gap-3">
                     <div class="w-6 h-6 rounded-full bg-teal-400/20 text-teal-300 flex items-center justify-center shrink-0 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
@@ -127,7 +150,6 @@
                     </div>
                 </div>
 
-                <!-- Item 2 -->
                 <div class="flex items-start gap-3">
                     <div class="w-6 h-6 rounded-full bg-teal-400/20 text-teal-300 flex items-center justify-center shrink-0 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
@@ -138,7 +160,6 @@
                     </div>
                 </div>
 
-                <!-- Item 3 -->
                 <div class="flex items-start gap-3">
                     <div class="w-6 h-6 rounded-full bg-teal-400/20 text-teal-300 flex items-center justify-center shrink-0 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
@@ -150,7 +171,6 @@
                 </div>
 
             </div>
-
         </section>
 
     </div>

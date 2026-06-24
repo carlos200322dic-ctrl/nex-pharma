@@ -8,6 +8,7 @@ class PanelController extends Controller
 {
     public function index()
     {
-        return view('Panel');
+        // Changed 'Panel' to 'panel' to match resources/views/panel.blade.php
+        return view('panel');
     }
 }

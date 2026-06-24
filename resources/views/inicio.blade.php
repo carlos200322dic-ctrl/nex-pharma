@@ -8,31 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <style>
-        /* --- COLORES CORPORATIVOS EN ESPAÑOL DIRECTO --- */
-        
-        .texto-azul-oscuro-corporativo { 
-            color: #0A3D8F; 
-        }
-        
-        .fondo-azul-oscuro-corporativo { 
-            background-color: #0A3D8F; 
-        }
-        
-        .fondo-azul-claro-secundario { 
-            background-color: #0077CC; 
-        }
-        
-        .texto-verde-destacados { 
-            color: #00B39D; 
-        }
-        
-        .fondo-verde-marca { 
-            background-color: #00B39D; 
-        }
-        
-        .borde-verde-indicador { 
-            border-color: #00B39D; 
-        }
+        /* --- COLORES CORPORATIVOS EN ESPAÑOL --- */
+        .texto-azul-oscuro-corporativo { color: #0A3D8F; }
+        .fondo-azul-oscuro-corporativo { background-color: #0A3D8F; }
+        .fondo-azul-claro-secundario { background-color: #0077CC; }
+        .texto-verde-destacados { color: #00B39D; }
+        .fondo-verde-marca { background-color: #00B39D; }
+        .borde-verde-indicador { border-color: #00B39D; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col font-sans antialiased">
@@ -84,7 +66,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CARACTERÍSTICAS (image_43e660.png) -->
+        <!-- SECCIÓN CARACTERÍSTICAS -->
         <section class="bg-gray-50 py-20 border-b border-gray-100">
             <div class="container mx-auto px-6 max-w-6xl">
                 
@@ -94,8 +76,8 @@
                     <p class="text-gray-500 text-sm md:text-base">Una plataforma completa con todas las herramientas que necesitas para gestionar tu farmacia</p>
                 </div>
 
-                <!-- Grid de 8 Tarjetas -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Grid de Tarjetas (Simplificadas a 6 para tu BD) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Tarjeta 1: Gestión de Inventario -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
@@ -103,7 +85,7 @@
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                         </div>
                         <h4 class="font-bold text-gray-900">Gestión de Inventario</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Control completo de tu stock con alertas automáticas.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Control completo de tu stock con sincronización automática en cada venta.</p>
                     </div>
 
                     <!-- Tarjeta 2: Control de Medicamentos -->
@@ -112,61 +94,43 @@
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0h-15zM12 4.5v15"/></svg>
                         </div>
                         <h4 class="font-bold text-gray-900">Control de Medicamentos</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Gestión especializada para productos farmacéuticos.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Registro detallado incluyendo nombre, categoría y precios exactos.</p>
                     </div>
 
-                    <!-- Tarjeta 3: Control de Lotes -->
+                    <!-- Tarjeta 3: Control de Laboratorios -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
                         <div class="texto-verde-destacados">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                         </div>
-                        <h4 class="font-bold text-gray-900">Control de Lotes</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Seguimiento de lotes y fechas de vencimiento precisas.</p>
+                        <h4 class="font-bold text-gray-900">Control de Laboratorios</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Filtra y organiza tus medicamentos por marcas y laboratorios (Ej: Bayer, MK).</p>
                     </div>
 
-                    <!-- Tarjeta 4: Control de Vencimientos -->
+                    <!-- Tarjeta 4: Alertas de Stock -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
                         <div class="text-red-500">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                         </div>
-                        <h4 class="font-bold text-gray-900">Control de Vencimientos</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Alertas tempranas para productos próximos a vencer.</p>
+                        <h4 class="font-bold text-gray-900">Alertas de Stock</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Avisos visuales cuando los productos alcanzan su nivel de stock mínimo.</p>
                     </div>
 
-                    <!-- Tarjeta 5: Gestión de Proveedores -->
-                    <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
-                        <div class="text-indigo-600">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.114-1.28.319-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900">Gestión de Proveedores</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Administra tus proveedores y órdenes de compra de manera ágil.</p>
-                    </div>
-
-                    <!-- Tarjeta 6: Ventas y Facturación -->
+                    <!-- Tarjeta 5: Ventas Rápidas -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
                         <div class="text-cyan-600">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         </div>
-                        <h4 class="font-bold text-gray-900">Ventas y Facturación</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Sistema POS completo con múltiples métodos de pago rápidos.</p>
+                        <h4 class="font-bold text-gray-900">Ventas Integradas</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Punto de venta fluido para facturar los medicamentos a tus clientes.</p>
                     </div>
 
-                    <!-- Tarjeta 7: Reportes y Estadísticas -->
+                    <!-- Tarjeta 6: Panel General -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
                         <div class="text-emerald-600">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
                         </div>
-                        <h4 class="font-bold text-gray-900">Reportes y Estadísticas</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Análisis detallados con gráficos e indicadores financieros en vivo.</p>
-                    </div>
-
-                    <!-- Tarjeta 8: Gestión Multiusuario -->
-                    <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 space-y-3 hover:shadow-md transition-shadow">
-                        <div class="text-purple-600">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900">Gestión Multiusuario</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Roles y permisos totalmente personalizados por cada empleado.</p>
+                        <h4 class="font-bold text-gray-900">Panel General (Dashboard)</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Monitorea el estado global de tu negocio desde un resumen centralizado.</p>
                     </div>
 
                 </div>
@@ -184,11 +148,10 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
                     <!-- Testimonio 1 -->
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex flex-col justify-between">
                         <p class="text-gray-600 text-sm italic leading-relaxed">
-                            "Antes perdíamos mucho dinero con medicamentos que vencían guardados. Con las alertas automatizadas de Nex Pharma redujimos las pérdidas por merma a cero."
+                            "Antes perdíamos mucho dinero porque no sabíamos qué productos se estaban agotando. Las alertas de stock de Nex Pharma solucionaron esto de inmediato."
                         </p>
                         <div class="mt-6 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm fondo-azul-oscuro-corporativo">DF</div>
@@ -202,7 +165,7 @@
                     <!-- Testimonio 2 -->
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex flex-col justify-between">
                         <p class="text-gray-600 text-sm italic leading-relaxed">
-                            "El módulo de facturación POS es increíblemente veloz. Atendemos a los pacientes en la mitad de tiempo y el inventario se descuenta de forma exacta en tiempo real."
+                            "El módulo de ventas es increíblemente veloz. Atendemos a los pacientes en la mitad de tiempo y el inventario se descuenta de forma exacta en tiempo real."
                         </p>
                         <div class="mt-6 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm fondo-verde-marca">MC</div>
@@ -216,7 +179,7 @@
                     <!-- Testimonio 3 -->
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex flex-col justify-between">
                         <p class="text-gray-600 text-sm italic leading-relaxed">
-                            "Gestionar múltiples sucursales solía ser un dolor de cabeza constante. Con esta plataforma puedo ver los reportes financieros globales desde mi teléfono."
+                            "El panel general me da la tranquilidad de ver exactamente cuánto hemos vendido en el día con un solo vistazo. Todo está organizado."
                         </p>
                         <div class="mt-6 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">GA</div>
@@ -226,7 +189,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -238,7 +200,7 @@
     <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
         <div class="container mx-auto px-6 max-w-5xl text-center space-y-4">
             <p class="text-white font-bold text-lg">Nex Pharma</p>
-            <p class="text-xs max-w-md mx-auto">Soluciones tecnológicas avanzadas diseñadas para el control operativo de inventarios, lotes y facturación farmacéutica.</p>
+            <p class="text-xs max-w-md mx-auto">Soluciones tecnológicas avanzadas diseñadas para el control operativo de inventarios, laboratorios y ventas de farmacias.</p>
             <div class="text-xs pt-4 border-t border-gray-800 text-gray-500">
                 &copy; {{ date('Y') }} Nex Pharma - Sistema de Gestión Farmacéutica. Todos los derechos reservados.
             </div>

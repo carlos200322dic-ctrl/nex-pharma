@@ -3,73 +3,73 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User; // Importar el modelo User
-use Illuminate\Support\Facades\Auth; // Importar la fachada Auth
-use Illuminate\Support\Facades\Hash; // Importar Hash para encriptar contraseñas
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    // Mostrar vista de Login
     public function showLogin()
     {
-        return view('login'); // Asegúrate que tu archivo se llame Login.blade.php
+        return view('login');
     }
 
+    // Mostrar vista de Registro
     public function showRegister()
     {
-        return view('register'); // Asegúrate que tu archivo se llame Register.blade.php
+        return view('register');
     }
 
+    // Procesar Inicio de Sesión
     public function login(Request $request)
     {
-        // 1. Validar los datos del formulario
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // 2. Intentar iniciar sesión
-        // El método attempt busca el email y compara la contraseña usando Hash automáticamente
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); // Seguridad contra fijación de sesiones
-
-            return redirect()->intended('/panel'); // Redirige al panel privado
+            $request->session()->regenerate();
+            return redirect()->intended('/panel'); // Redirige al panel si es exitoso
         }
 
-        // 3. Si falla, regresar con un error
         return back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
         ])->onlyInput('email');
     }
 
+    // Procesar Registro
     public function register(Request $request)
     {
-        // 1. Validar los datos de registro
+        // 1. Validamos los datos (el confirmed verifica que password y password_confirmation sean iguales)
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], 
         ]);
 
-        // 2. Crear el usuario en la base de datos
+        // 2. Creamos el usuario en la BD (encriptando la contraseña)
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // ¡Siempre encriptada!
+            'password' => Hash::make($request->password),
         ]);
 
-        // 3. Iniciar sesión automáticamente al registrarse
+        // 3. Autenticamos automáticamente al usuario recién registrado
         Auth::login($user);
 
+        // 4. Lo enviamos al panel de administración
         return redirect('/panel');
     }
 
+    // Cerrar sesión
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-        $request->session()->regenerateToken(); // Regenerar token CSRF
-
+        $request->session()->regenerateToken();
+        
         return redirect('/login');
     }
 }

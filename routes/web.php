@@ -8,6 +8,11 @@ use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\ConfiguracionController;
 
+use App\Http\Controllers\CreateControler; // Importar el nuevo controlador
+
+// ... dentro de tu grupo de rutas protegidas por 'auth':
+Route::get('/productos/create', [CreateControler::class, 'create']);
+Route::post('/productos', [CreateControler::class, 'store']);
 /*
 |--------------------------------------------------------------------------
 | Pública
@@ -19,8 +24,8 @@ Route::get('/', [InicioController::class, 'index']);
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/Register', [LoginController::class, 'showRegister']);
-Route::post('/Register', [LoginController::class, 'register']);
+Route::get('/register', [LoginController::class, 'showRegister']);
+Route::post('/register', [LoginController::class, 'register']);
 
 /*
 |--------------------------------------------------------------------------
